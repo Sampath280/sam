@@ -5,7 +5,7 @@
       "allowedRoles": ["anonymous"]
     },
     {
-      "route": "/api/HttpTrigger1",
+      "route": "https://ravijsampath898ytgh.azurewebsites.net/api/HttpTrigger1",
       "allowedRoles": ["authenticated"] 
     }
   ],
@@ -17,7 +17,7 @@
   },
   "trailingSlash": "auto",
   "auth": {
-    "rolesSource": "/api/GetRoles",
+    "rolesSource": "https://ravijsampath898ytgh.azurewebsites.net/api/HttpTrigger1",
     "identityProviders": {
       "google": {
         "registration": {
