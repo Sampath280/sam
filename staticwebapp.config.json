@@ -21,7 +21,7 @@
     "identityProviders": {
       "google": {
         "registration": {
-          "clientIdSettingName": "826434727827-kf2qevsjr24oe464cce4snf90b46dsnf.apps.googleusercontent.com",
+          "clientIdSettingName": "GOOGLE_CLIENT_ID",
           "clientSecretSettingName": "GOOGLE_CLIENT_SECRET_APP_SETTING_NAME"
         }
       }
