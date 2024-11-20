@@ -3,10 +3,6 @@
     {
       "route": "/",
       "allowedRoles": ["anonymous"]
-    },
-    {
-      "route": "https://ravijsampath898ytgh.azurewebsites.net/api/HttpTrigger1",
-      "allowedRoles": ["authenticated"] 
     }
   ],
   "navigationFallback": {
@@ -17,12 +13,11 @@
   },
   "trailingSlash": "auto",
   "auth": {
-    "rolesSource": "https://ravijsampath898ytgh.azurewebsites.net/api/HttpTrigger1",
     "identityProviders": {
       "google": {
         "registration": {
           "clientIdSettingName": "GOOGLE_CLIENT_ID",
-          "clientSecretSettingName": "GOOGLE_CLIENT_SECRET_APP_SETTING_NAME"
+          "clientSecretSettingName": "GOOGLE_CLIENT_SECRET"
         }
       }
     }
