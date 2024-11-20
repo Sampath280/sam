@@ -1,26 +1,30 @@
 {
-    "routes": [
-      {
-        "route": "/",
-        "allowedRoles": ["anonymous"]
-      }
-    ],
-    "navigationFallback": {
-      "rewrite": "/index.html"
+  "routes": [
+    {
+      "route": "/",
+      "allowedRoles": ["anonymous"]
     },
-    "globalHeaders": {
-      "cache-control": "no-store, must-revalidate"
-    },
-    "trailingSlash": "auto",
-    "auth": {
-      "identityProviders": {
-        "google": {
-          "registration": {
-            "clientIdSettingName": "826434727827-kf2qevsjr24oe464cce4snf90b46dsnf.apps.googleusercontent.com",
-            "clientSecretSettingName": "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"
-          }
+    {
+      "route": "/api/HttpTrigger1",
+      "allowedRoles": ["authenticated"] 
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+  "globalHeaders": {
+    "cache-control": "no-store, must-revalidate"
+  },
+  "trailingSlash": "auto",
+  "auth": {
+    "rolesSource": "/api/GetRoles",
+    "identityProviders": {
+      "google": {
+        "registration": {
+          "clientIdSettingName": "826434727827-kf2qevsjr24oe464cce4snf90b46dsnf.apps.googleusercontent.com",
+          "clientSecretSettingName": "GOOGLE_CLIENT_SECRET_APP_SETTING_NAME"
         }
       }
     }
   }
-  
+}
