@@ -60,5 +60,5 @@ jobs:
         with:
           app-name: 'easee3'
           slot-name: 'Production'
-          package: release.zip
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_40B64AAA6FA04625BD4E7A9CFDBDE5AD }}
