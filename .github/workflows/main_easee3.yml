@@ -52,33 +52,24 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      # 🔹 METHOD 1: Deploy using Publish Profile (Recommended) 🔹
-      - name: Deploy to Azure Web App (Publish Profile)
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'easee3'
-          slot-name: 'Production'
-          package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+  
 
       # 🔹 METHOD 2: Deploy using Service Principal (Optional) 🔹
       # Uncomment the following steps if you prefer service principal authentication.
 
-      # - name: Login to Azure
-      #   uses: azure/login@v1
-      #   with:
-      #     client-id: ${{ secrets.AZURE_CLIENT_ID }}
-      #     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-      #     subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      # - name: Deploy to Azure Web App (Service Principal)
-      #   id: deploy-to-webapp
-      #   uses: azure/webapps-deploy@v3
-      #   with:
-      #     app-name: 'easee3'
-      #     slot-name: 'Production'
-      #     package: .
+       - name: Login to Azure
+        uses: azure/login@v1
+         with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        - name: Deploy to Azure Web App (Service Principal)
+         id: deploy-to-webapp
+         uses: azure/webapps-deploy@v3
+         with:
+          app-name: 'easee3'
+           slot-name: 'Production'
+           package: .
 
       - name: Output deployment URL
         run: echo "App deployed at: ${{ steps.deploy-to-webapp.outputs.webapp-url }}"
