@@ -30,7 +30,7 @@ jobs:
           npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+      run: zip -r release.zip . -x "node_modules/*" ".git/*" ".github/*"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -60,5 +60,5 @@ jobs:
         with:
           app-name: 'easee3'
           slot-name: 'Production'
-          package: .
+          package: release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_40B64AAA6FA04625BD4E7A9CFDBDE5AD }}
